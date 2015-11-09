@@ -34,11 +34,17 @@ def add_clients(session, verbose):
   group_choices = ('clientEval','impostorEval')
   
   for g, group in enumerate(group_choices):
-    for ctype in ['Genuine', 'Impostor']:
-      for cdid in userid_clients:
-        cid = ctype + '_%d' % cdid
-        if verbose>1: print("  Adding user '%s' of type '%s' group '%s'..." % (cid, ctype, g))
-        session.add(Client(cid, ctype, cdid, g))
+    for ctype in ['genuine', 'skilled']:
+      if g == 0:
+        for cdid in userid_eval_clients:
+          cid = ctype + '_%d' % cdid
+          if verbose>1: print("  Adding user '%s' of type '%s' group '%s'..." % (cid, ctype, g))
+          session.add(Client(cid, ctype, cdid, g))
+      elif g == 1:
+        for cdid in userid_eval_impostors:
+          cid = ctype + '_%d' % cdid
+          if verbose>1: print("  Adding user '%s' of type '%s' group '%s'..." % (cid, ctype, g))
+          session.add(Client(cid, ctype, cdid, g))
 
 
 def add_files(session, imagedir, verbose):
