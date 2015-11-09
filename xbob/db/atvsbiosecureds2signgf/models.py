@@ -78,7 +78,7 @@ class File(Base, xbob.db.verification.utils.File):
   def __init__(self, client_id, path, session_id, shot_id):
     # call base class constructor
     xbob.db.verification.utils.File.__init__(self, client_id = client_id, path = path)
-
+    
     self.session_id = session_id
     self.shot_id = shot_id
 

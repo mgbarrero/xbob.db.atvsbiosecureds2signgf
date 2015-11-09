@@ -45,7 +45,7 @@ class Database(xbob.db.verification.utils.SQLiteDatabase,xbob.db.verification.ut
     elif isinstance(l, six.string_types): return self.__group_replace_eval_by_genuine__((l,))
     l2 = []
     for val in l:
-      if (val == 'eval'): l2.append('Genuine')
+      if (val == 'eval'): l2.append('genuine')
       elif (val in Client.type_choices): l2.append(val)
     return tuple(set(l2))
 

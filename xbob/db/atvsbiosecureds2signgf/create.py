@@ -35,16 +35,10 @@ def add_clients(session, verbose):
   
   for g, group in enumerate(group_choices):
     for ctype in ['genuine', 'skilled']:
-      if g == 0:
-        for cdid in userid_eval_clients:
-          cid = ctype + '_%d' % cdid
-          if verbose>1: print("  Adding user '%s' of type '%s' group '%s'..." % (cid, ctype, g))
-          session.add(Client(cid, ctype, cdid, g))
-      elif g == 1:
-        for cdid in userid_eval_impostors:
-          cid = ctype + '_%d' % cdid
-          if verbose>1: print("  Adding user '%s' of type '%s' group '%s'..." % (cid, ctype, g))
-          session.add(Client(cid, ctype, cdid, g))
+      for cdid in users_list[g]:
+        cid = ctype + '_%d' % cdid
+        if verbose>1: print("  Adding user '%s' of type '%s' group '%s'..." % (cid, ctype, g))
+        session.add(Client(cid, ctype, cdid, group))
 
 
 def add_files(session, imagedir, verbose):
@@ -62,7 +56,7 @@ def add_files(session, imagedir, verbose):
       parts = string.split(basename, "_")
       ctype = parts[2]
       shotid = int(parts[1])
-      userid = int(parts[0])
+      userid = ctype + '_%d' % int(parts[0])
       if parts[2] == "skilled" and shotid <= 40:
         sessionid = 1
       elif parts[2] == "skilled" and shotid > 40:
@@ -93,7 +87,8 @@ def add_protocols(session, verbose):
     session.add(p)
     session.flush()
     session.refresh(p)
-
+    if verbose: print("Adding protocol %s..." % (proto))
+    
     # Add protocol purposes
     for key in range(len(protocolPurpose_list)):
       purpose = protocolPurpose_list[key]
