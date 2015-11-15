@@ -211,7 +211,7 @@ class Database(xbob.db.verification.utils.SQLiteDatabase,xbob.db.verification.ut
       if('probe' in purposes):
         if('client' in classes):
           q = self.query(File).join(Client).join((ProtocolPurpose, File.protocolPurposes)).join(Protocol).\
-                filter(Client.stype.in_(['genuine'])).\
+                filter(and_(Client.stype.in_(['genuine']),Client.sgroup.in_(['clientEval']))).\
                 filter(and_(Protocol.name.in_(protocol), ProtocolPurpose.sgroup.in_(groups), ProtocolPurpose.purpose == 'probe'))
           if model_ids:
             q = q.filter(Client.subid.in_(model_ids))
@@ -220,7 +220,7 @@ class Database(xbob.db.verification.utils.SQLiteDatabase,xbob.db.verification.ut
 
         if('skilledImpostor' in classes):
           q = self.query(File).join(Client).join((ProtocolPurpose, File.protocolPurposes)).join(Protocol).\
-                filter(Client.stype.in_(['skilled'])).\
+                filter(and_(Client.stype.in_(['skilled']),Client.sgroup.in_(['clientEval']))).\
                 filter(and_(Protocol.name.in_(protocol), ProtocolPurpose.sgroup.in_(groups), ProtocolPurpose.purpose == 'probe'))
           if model_ids:
             q = q.filter(Client.subid.in_(model_ids))
@@ -229,7 +229,7 @@ class Database(xbob.db.verification.utils.SQLiteDatabase,xbob.db.verification.ut
         
         if('randomImpostor' in classes):
           q = self.query(File).join(Client).join((ProtocolPurpose, File.protocolPurposes)).join(Protocol).\
-                filter(Client.stype.in_(['genuine'])).\
+                filter(and_(Client.stype.in_(['genuine']),Client.sgroup.in_(['impostorEval']))).\
                 filter(and_(Protocol.name.in_(protocol), ProtocolPurpose.sgroup.in_(groups), ProtocolPurpose.purpose == 'probe'))
           q = q.order_by(File.client_id, File.session_id, File.shot_id)
           retval += list(q)
