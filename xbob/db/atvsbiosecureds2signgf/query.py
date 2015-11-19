@@ -14,7 +14,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 """This module provides the Dataset interface allowing the user to query the
- ATVS Biosecure DS2 Signature Global Features database in the most obvious ways.
+ Biosecure DS2 Signature Global Features database in the most obvious ways.
 """
 
 import os
