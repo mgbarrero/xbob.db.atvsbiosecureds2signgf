@@ -13,14 +13,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-"""A few checks at the  ATVS Biosecure DS2 Signature Global Features database.
+"""A few checks at the  Biosecure DS2 Signature Global Features database.
 """
 
 import os, sys
 import unittest
 from .query import Database
 
-class ATVSBiosecureDS2SignGFDatabaseTest(unittest.TestCase):
+class BiosecureDS2SignGFDatabaseTest(unittest.TestCase):
 
     def test_clients(self):
       db = Database()
@@ -69,7 +69,7 @@ class ATVSBiosecureDS2SignGFDatabaseTest(unittest.TestCase):
     def test_driver_api(self):
 
       from bob.db.script.dbmanage import main
-      assert main('atvsbiosecureds2signgf dumplist --self-test'.split()) == 0
-      assert main('atvsbiosecureds2signgf checkfiles --self-test'.split()) == 0
-      assert main('atvsbiosecureds2signgf reverse 1_1_genuine --self-test'.split()) == 0
-      assert main('atvsbiosecureds2signgf path 37 --self-test'.split()) == 0
+      assert main('biosecureds2signgf dumplist --self-test'.split()) == 0
+      assert main('biosecureds2signgf checkfiles --self-test'.split()) == 0
+      assert main('biosecureds2signgf reverse 1_1_genuine --self-test'.split()) == 0
+      assert main('biosecureds2signgf path 37 --self-test'.split()) == 0
