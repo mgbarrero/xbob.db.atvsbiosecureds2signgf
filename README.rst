@@ -1,8 +1,8 @@
-=======================================================
- ATVS Biosecure DS2 Signature Global Features Database
-=======================================================
+===================================================
+Biosecure DS2 Signature Global Features Database
+===================================================
 
-This package contains the access API and descriptions for the `ATVS Biosecure DS2
+This package contains the access API and descriptions for the `Biosecure DS2
 Signature Global Features Database`_.
 
 You would normally not install this package unless you are maintaining it. What
@@ -44,11 +44,11 @@ script)::
 
     install_requires=[
       ...
-      "xbob.db.atvsbiosecureds2signgf",
+      "xbob.db.biosecureds2signgf",
     ],
 
 Proceed normally with your ``boostrap/buildout`` steps and you should be all
-set. That means you can now import the ``xbob.db.atvsbiosecureds2signgf`` namespace into your scripts.
+set. That means you can now import the ``xbob.db.biosecureds2signgf`` namespace into your scripts.
 
 Modify your buildout.cfg and download from git
 ==============================================
@@ -64,8 +64,8 @@ lines::
   auto-checkout = *
   eggs = bob
          ...
-         xbob.db.atvsbiosecureds2signgf
+         xbob.db.biosecureds2signgf
 
   [sources]
-  xbob.db.atvskeystroke = git https://github.com/mgbarrero/xbob.db.atvsbiosecureds2signgf.git
+  xbob.db.atvskeystroke = git https://github.com/mgbarrero/xbob.db.biosecureds2signgf.git
   ...
