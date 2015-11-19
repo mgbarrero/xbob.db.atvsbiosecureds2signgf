@@ -84,7 +84,7 @@ class File(Base, xbob.db.verification.utils.File):
 
 
 class Protocol(Base):
-  """ ATVS Biosecure DS2 Signature Global Features protocols"""
+  """ Biosecure DS2 Signature Global Features protocols"""
 
   __tablename__ = 'protocol'
 
@@ -101,7 +101,7 @@ class Protocol(Base):
 
 
 class ProtocolPurpose(Base):
-  """ ATVS Biosecure DS2 Signature Global Features protocol purposes"""
+  """ Biosecure DS2 Signature Global Features protocol purposes"""
 
   __tablename__ = 'protocolPurpose'
 
