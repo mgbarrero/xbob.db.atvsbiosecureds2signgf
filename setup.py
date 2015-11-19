@@ -22,10 +22,10 @@ from setuptools import setup, find_packages
 # parameters that define our package.
 setup(
 
-    name='xbob.db.atvsbiosecureds2signgf',
+    name='xbob.db.biosecureds2signgf',
     version='0.0.1',
-    description='ATVS-Biosecure DS2 Signature Global Features Database Access API for Bob',
-    url='http://github.com/mgbarrero/xbob.db.atvsbiosecureds2signgf',
+    description='Biosecure DS2 Signature Global Features Database Access API for Bob',
+    url='http://github.com/mgbarrero/xbob.db.biosecureds2signgf',
     license='GPLv3',
     author='Marta Gomez-Barrero',
     author_email='marta.barrero@uam.es',
@@ -52,12 +52,12 @@ setup(
 
       # declare database to bob
       'bob.db': [
-        'atvskeystroke = xbob.db.atvsbiosecureds2signgf.driver:Interface',
+        'biosecureds2signgf = xbob.db.biosecureds2signgf.driver:Interface',
         ],
 
       # declare tests to bob
       'bob.test': [
-        'atvskeystroke = xbob.db.atvsbiosecureds2signgf.test:ATVSBiosecureDS2SignGFDatabaseTest',
+        'biosecureds2signgf = xbob.db.biosecureds2signgf.test:BiosecureDS2SignGFDatabaseTest',
         ],
 
       },
