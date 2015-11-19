@@ -67,5 +67,5 @@ lines::
          xbob.db.biosecureds2signgf
 
   [sources]
-  xbob.db.atvskeystroke = git https://github.com/mgbarrero/xbob.db.biosecureds2signgf.git
+  xbob.db.biosecureds2signgf = git https://github.com/mgbarrero/xbob.db.biosecureds2signgf.git
   ...
