@@ -29,7 +29,7 @@ def nodot(item):
   return item[0] != '.'
 
 def add_clients(session, verbose):
-  """Add clients to the  ATVS Biosecure DS2 Signature Global Features database."""
+  """Add clients to the  Biosecure DS2 Signature Global Features database."""
   users_list = (userid_eval_clients, userid_eval_impostors)
   group_choices = ('clientEval','impostorEval')
   
@@ -42,7 +42,7 @@ def add_clients(session, verbose):
 
 
 def add_files(session, imagedir, verbose):
-  """Add files to the  ATVS Biosecure DS2 Signature Global Features database."""
+  """Add files to the Biosecure DS2 Signature Global Features database."""
 
   def add_file(session, basename, userid, shotid, sessionid):
     """Parse a single filename and add it to the list."""
@@ -164,6 +164,6 @@ def add_command(subparsers):
 
   parser.add_argument('-R', '--recreate', action='store_true', help="If set, I'll first erase the current database")
   parser.add_argument('-v', '--verbose', action='count', help="Do SQL operations in a verbose way?")
-  parser.add_argument('-D', '--imagedir', metavar='DIR', default='/home/bob/BioSecure_DS2_Sign_GlobalFeats', help="Change the relative path to the directory containing the images of the ATVS Biosecure DS2 Global Features database.")
+  parser.add_argument('-D', '--imagedir', metavar='DIR', default='/home/bob/BioSecure_DS2_Sign_GlobalFeats', help="Change the relative path to the directory containing the images of the Biosecure DS2 Global Features database.")
 
   parser.set_defaults(func=create) #action
